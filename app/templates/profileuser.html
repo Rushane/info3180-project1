@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+
+
+<div class="profileuser">
+     
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <img id="profile_img" src="{{ url_for('static', filename='uploads/'+user.photo) }}"></img>
+
+
+
+    <div class="info">
+
+        <h4>{{ user.firstname}} {{ user.lastname }}</h4>
+
+        <span <i class="fa fa-envelope-o"></i> {{ user.email}} </span><br/>
+
+        <span <i class="fa fa-map-marker"></i> {{ user.location}}</span><br/>
+
+        <span <i class="fa fa-calendar-o"></i> Joined on {{ user.created_on }}</span> <br/><br/>
+
+        
+
+        
+
+    </div><br/>
+
+    <br/>
+
+    <div class ="bio">
+
+    <h5>About Me</h5>
+
+        <p>{{ user.biography }}</p>
+
+         
+
+    <div class="button"><button id="btn1">Send Message </button>
+
+    <button id="btn2">Follow </button></div> 
+
+    
+
+    </div>
+
+</div>
+
+
+{% endblock %}

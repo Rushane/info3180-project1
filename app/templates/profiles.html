@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Profiles{% endblock %}
+
+{% block main %}
+{% include 'flash_messages.html' %}
+
+ <h1>Profiles</h1>
+    {% for user in userlist %}
+    <div class="profile">
+        <hr class="top"/>
+        
+        <ul>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <img id= 'image' src ="{{ url_for('static', filename='uploads/'+user.photo) }}"></img>
+            <div class="info">
+
+            <span class="name">{{ user.firstname }} {{ user.lastname }}</span><br>
+            <i class="material-icons">person_outline</i>{{ user.gender }} <br>
+            <i class="material-icons">place</i> {{ user.location }}
+            <div class="view_btn">
+            <form>
+            <input id ="view_button" class='btn btn-primary' type="button" value="View Profile" onclick="window.location.href='/profile/{{ user.userid }}'"/>
+            </form> 
+            </div>
+            </div>
+            
+        	</div>
+        </ul>
+        {% endfor %}
+
+{% endblock %}
